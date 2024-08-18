@@ -75,7 +75,7 @@ def logout():
     """Logs out the user by clearing the session state."""
     for key in st.session_state.keys():
         del st.session_state[key]
-    # st.experimental_rerun()
+    st.experimental_set_query_params()  # 페이지 새로고침
 
 if not check_password():
     st.stop()
