@@ -67,7 +67,7 @@ def check_password():
     # Show inputs for username + password.
     login_form()
     # 카피라이트 문구 추가
-    st.write("© 2023 Charles Kim. All rights reserved.")
+    st.write("© 2024 Charles Kim. All rights reserved.")
     if "password_correct" in st.session_state:
         st.error("😕 User not known or password incorrect")
     return False
@@ -307,5 +307,5 @@ else:
             warning_msg.error("파일을 업로드 해주세요.")
 
 # 카피라이트 문구 추가
-st.write("© 2023 Charles Kim. All rights reserved.")
+st.write("© 2024 Charles Kim. All rights reserved.")
 
