@@ -183,7 +183,7 @@ def create_chain(retriever, model_name="gpt-4o"):
     # prompt = load_prompt(prompt_filepath, encoding="utf-8")
     # 단계 6: 프롬프트 생성(Create Prompt)
     # 프롬프트를 생성합니다.
-    prompt = load_prompt("./prompts/pdf-rag-gpt.yaml", encoding="utf-8")
+    prompt = load_prompt("./prompts/battery_rag.yaml", encoding="utf-8")
 
     # 단계 7: 언어모델(LLM) 생성
     # 모델(LLM) 을 생성합니다.
