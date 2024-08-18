@@ -82,8 +82,6 @@ else:
     if not os.path.exists(".cache/embeddings"):
         os.makedirs(".cache/embeddings")
 
-    st.title("배터리 동향 전문가 QA💬 ")
-
     # 처음 1번만 실행하기 위한 코드
     if "messages" not in st.session_state:
         # 대화 기록을 저장하기 위한 용도로 생성한다.
