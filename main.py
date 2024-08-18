@@ -71,6 +71,12 @@ def check_password():
     return False
 
 
+def logout():
+    """Logs out the user by clearing the session state."""
+    for key in st.session_state.keys():
+        del st.session_state[key]
+    # st.experimental_rerun()
+
 if not check_password():
     st.stop()
 
