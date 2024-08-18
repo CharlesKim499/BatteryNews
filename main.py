@@ -16,10 +16,7 @@ from dotenv import load_dotenv
 import glob
 import hmac
 import os
-
-st.title("나만의 챗GPT💬 ")
-
-
+\
 def check_password():
     def login_form():
         """Form with widgets to collect user information"""
