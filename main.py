@@ -30,16 +30,14 @@ def check_password():
         # # st.secrets의 내용을 출력하여 확인
         # st.write(f"Secrets: {st.secrets}")
 
-        if username in st.secrets["password"]:
-            stored_password = st.secrets["password"][username]
+        if username in st.secrets["users"]:
+            stored_password = st.secrets["users"][username]
             # st.write(f"Stored Password: {stored_password}")  # 디버깅을 위해 출력
 
             if isinstance(password, str) and isinstance(stored_password, str):
                 if hmac.compare_digest(password, stored_password):
                     st.session_state["password_correct"] = True
-                    del st.session_state[
-                        "password"
-                    ]  # Don't store the username or password.
+                    del st.session_state["password"]
                     del st.session_state["username"]
                 else:
                     st.session_state["password_correct"] = False
