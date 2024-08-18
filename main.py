@@ -3,9 +3,19 @@ from langchain_core.messages.chat import ChatMessage
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from langchain_teddynote.prompts import load_prompt
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_community.document_loaders import PyMuPDFLoader
+from langchain_community.vectorstores import FAISS
+from langchain_core.runnables import RunnablePassthrough
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain.docstore import InMemoryDocstore
+from langchain_teddynote import logging
+from langchain.schema import Document
+import faiss
 from dotenv import load_dotenv
 import glob
 import hmac
+import os
 
 st.title("나만의 챗GPT💬 ")
 
