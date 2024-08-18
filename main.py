@@ -66,6 +66,8 @@ def check_password():
 
     # Show inputs for username + password.
     login_form()
+    # 카피라이트 문구 추가
+    st.write("© 2023 Charles Kim. All rights reserved.")
     if "password_correct" in st.session_state:
         st.error("😕 User not known or password incorrect")
     return False
@@ -79,9 +81,7 @@ def logout():
 
 if not check_password():
     st.stop()
-    # 카피라이트 문구 추가
-    st.write("© 2023 Charles Kim. All rights reserved.")
-
+    
 else:
     # 캐시 디렉토리 생성
     if not os.path.exists(".cache"):
