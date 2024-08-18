@@ -99,6 +99,10 @@ else:
     if "chain" not in st.session_state:
         st.session_state["chain"] = None
 
+    # 로그아웃 버튼 추가
+    if st.button("로그아웃"):
+        logout()
+        
     # 사이드바 생성
     with st.sidebar:
         # 초기화 버튼 생성
