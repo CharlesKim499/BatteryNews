@@ -20,8 +20,6 @@ import pandas as pd
 
 
 st.title("Battery News GPT")
-# 카피라이트 문구 추가
-st.write("© 2023 Charles Kim. All rights reserved.")
 
 def check_password():
     def login_form():
@@ -305,3 +303,7 @@ else:
         else:
             # 파일 업로드 경고
             warning_msg.error("파일을 업로드 해주세요.")
+
+# 카피라이트 문구 추가
+st.write("© 2023 Charles Kim. All rights reserved.")
+
