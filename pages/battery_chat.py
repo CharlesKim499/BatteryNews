@@ -26,12 +26,6 @@ logging.langsmith("[Project] 배터리 동향 전문가 RAG")
 
 import streamlit as st
 
-# Sample users for demonstration purposes
-users = {
-    "daesoo.kim": "Daimler@123",
-    "charles.kim": "Daimler@123",
-}
-
 
 # Function to authenticate users
 def authenticate(username, password):
