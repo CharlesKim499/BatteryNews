@@ -79,6 +79,8 @@ def logout():
 
 if not check_password():
     st.stop()
+    # 카피라이트 문구 추가
+    st.write("© 2023 Charles Kim. All rights reserved.")
 
 else:
     # 캐시 디렉토리 생성
