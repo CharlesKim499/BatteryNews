@@ -132,6 +132,9 @@ else:
         selected_model = st.selectbox(
             "LLM 모델 선택", ["gpt-4o", "gpt-4-turbo", "gpt-4o-mini"], index=0
         )
+        # 카피라이트 문구 추가
+        st.write("© 2024 Charles Kim. All rights reserved.")
+
 
     # 이전 대화를 출력
     def print_messages():
@@ -306,6 +309,4 @@ else:
             # 파일 업로드 경고
             warning_msg.error("파일을 업로드 해주세요.")
 
-# 카피라이트 문구 추가
-st.write("© 2024 Charles Kim. All rights reserved.")
 
