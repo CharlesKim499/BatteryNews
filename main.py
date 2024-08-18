@@ -20,6 +20,8 @@ import pandas as pd
 
 
 st.title("Battery News GPT")
+# 카피라이트 문구 추가
+st.write("© 2023 Charles Kim. All rights reserved.")
 
 def check_password():
     def login_form():
