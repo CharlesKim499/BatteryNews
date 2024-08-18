@@ -18,9 +18,10 @@ with st.sidebar:
     # 초기화 버튼 생성
     clear_btn = st.button("대화 초기화")
 
-    prompt_files = glob.glob("prompts/*.yaml")
+    # prompt_files = glob.glob("prompts/*.yaml")
 
-    selected_prompt = st.selectbox("프롬프트를 선택해 주세요", prompt_files, index=0)
+    # selected_prompt = st.selectbox("프롬프트를 선택해 주세요", prompt_files, index=0)
+    selected_prompt = "prompts/battery_rag.yaml"
 
     task_input = st.text_input("Task 입력", "")
 
