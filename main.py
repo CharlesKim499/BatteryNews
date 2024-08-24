@@ -21,6 +21,7 @@ import pandas as pd
 
 st.title("Battery News GPT")
 
+
 def check_password():
     def login_form():
         """Form with widgets to collect user information"""
@@ -79,9 +80,10 @@ def logout():
         del st.session_state[key]
     st.rerun()
 
+
 if not check_password():
     st.stop()
-    
+
 else:
     # 캐시 디렉토리 생성
     if not os.path.exists(".cache"):
@@ -104,7 +106,7 @@ else:
     # 로그아웃 버튼 추가
     if st.button("로그아웃"):
         logout()
-        
+
     # 사이드바 생성
     with st.sidebar:
         # 초기화 버튼 생성
@@ -134,7 +136,6 @@ else:
         )
         # 카피라이트 문구 추가
         st.write("© 2024 Charles Kim. All rights reserved.")
-
 
     # 이전 대화를 출력
     def print_messages():
@@ -268,6 +269,16 @@ else:
         retriever = embed_file(uploaded_file)
         chain = create_chain(retriever, model_name=selected_model)
         st.session_state["chain"] = chain
+    else:
+        # 이미 임베딩 파일이 있는 경우
+        if os.path.exists(".cache/embeddings"):
+            retriever = FAISS.from_embeddings_directory(".cache/embeddings")
+            chain = create_chain(retriever, model_name=selected_model)
+            st.session_state["chain"] = chain
+        else:
+            # 파일 업로드 경고
+            warning_msg = st.empty()
+            warning_msg.error("파일을 업로드 해주세요.")
 
     # 초기화 버튼이 눌리면 :
     if clear_btn:
@@ -308,5 +319,3 @@ else:
         else:
             # 파일 업로드 경고
             warning_msg.error("파일을 업로드 해주세요.")
-
-
