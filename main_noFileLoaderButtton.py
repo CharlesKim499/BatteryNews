@@ -21,6 +21,7 @@ import pandas as pd
 
 st.title("Battery News GPT")
 
+
 def check_password():
     def login_form():
         """Form with widgets to collect user information"""
@@ -79,9 +80,10 @@ def logout():
         del st.session_state[key]
     st.rerun()
 
+
 if not check_password():
     st.stop()
-    
+
 else:
     # 캐시 디렉토리 생성
     if not os.path.exists(".cache"):
@@ -104,37 +106,17 @@ else:
     # 로그아웃 버튼 추가
     if st.button("로그아웃"):
         logout()
-        
+
     # 사이드바 생성
     with st.sidebar:
         # 초기화 버튼 생성
         clear_btn = st.button("대화 초기화")
 
-        # 파일 업로드
-        uploaded_file = st.file_uploader("Choose a file", type=["pdf", "xlsx", "xls"])
-        # 파일 타입 선택
-        # uploaded_file = st.selectbox("파일 타입 선택", ["pdf", "excel"], index=0)
-
-        # # 파일 업로드 되었을 때
-        # if uploaded_file:
-        #     if selected_file_type == "pdf":
-        #         # 작업시간이 오래 걸릴 예정
-        #         retriever = embed_file(uploaded_file)
-        #         chain = create_chain(retriever, model_name=selected_model)
-        #         st.session_state["chain"] = chain
-        #     elif selected_file_type == "excel":
-        #         # 엑셀 파일 처리 코드 추가
-        #         # 작업시간이 오래 걸릴 예정
-        #         retriever = embed_excel_file(uploaded_file)
-        #         chain = create_chain(retriever, model_name=selected_model)
-        #         st.session_state["chain"] = chain
-        # 모델 선택 박스
         selected_model = st.selectbox(
             "LLM 모델 선택", ["gpt-4o", "gpt-4-turbo", "gpt-4o-mini"], index=0
         )
         # 카피라이트 문구 추가
         st.write("© 2024 Charles Kim. All rights reserved.")
-
 
     # 이전 대화를 출력
     def print_messages():
@@ -262,10 +244,12 @@ else:
 
         return chain
 
-    # 파일 업로드 되었을 때
-    if uploaded_file:
+    # 파일 경로 설정
+    file_paths = glob.glob("../files/*.xlsx")
+
+    for file_path in file_paths:
         # 작업시간이 오래 걸릴 예정
-        retriever = embed_file(uploaded_file)
+        retriever = embed_file(file_path)
         chain = create_chain(retriever, model_name=selected_model)
         st.session_state["chain"] = chain
 
@@ -308,5 +292,3 @@ else:
         else:
             # 파일 업로드 경고
             warning_msg.error("파일을 업로드 해주세요.")
-
-
