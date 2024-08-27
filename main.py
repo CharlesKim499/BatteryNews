@@ -11,7 +11,7 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.docstore import InMemoryDocstore
 from langchain_teddynote import logging
 from langchain.schema import Document
-import FAISS
+import faiss
 from dotenv import load_dotenv
 import glob
 import hmac
