@@ -272,7 +272,7 @@ else:
     else:
         # 이미 임베딩 파일이 있는 경우
         if os.path.exists(".cache/embeddings"):
-            retriever = FAISS.from_embeddings_directory(".cache/embeddings")
+            retriever = FAISS.from_embeddings(".cache/embeddings")
             chain = create_chain(retriever, model_name=selected_model)
             st.session_state["chain"] = chain
         else:

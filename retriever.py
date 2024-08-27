@@ -5,6 +5,8 @@ from langchain_community.vectorstores import FAISS
 from langchain_openai import OpenAIEmbeddings
 from langchain.docstore import InMemoryDocstore
 from langchain.schema import Document
+from langchain_teddynote.community.pinecone import preprocess_documents
+
 import pandas as pd
 import faiss
 
