@@ -272,7 +272,13 @@ else:
     else:
         # 이미 임베딩 파일이 있는 경우
         if os.path.exists(".cache/embeddings"):
-            retriever = FAISS.from_embeddings(".cache/embeddings")
+            # 임베딩 파일 로드
+            embeddings = OpenAIEmbeddings()
+            with open(".cache/embeddings", "rb") as f:
+                embedding_data = f.read()
+
+            # FAISS 벡터스토어 생성
+            retriever = FAISS.from_embeddings(embedding_data, embeddings)
             chain = create_chain(retriever, model_name=selected_model)
             st.session_state["chain"] = chain
         else:
