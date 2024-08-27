@@ -271,10 +271,11 @@ else:
         st.session_state["chain"] = chain
     else:
         # 이미 임베딩 파일이 있는 경우
-        if os.path.exists(".cache/embeddings"):
+        embedding_file_path = ".cache/embeddings/embeddings_data.pkl"
+        if os.path.exists(embedding_file_path):
             # 임베딩 파일 로드
             embeddings = OpenAIEmbeddings()
-            with open(".cache/embeddings", "rb") as f:
+            with open(embedding_file_path, "rb") as f:
                 embedding_data = f.read()
 
             # FAISS 벡터스토어 생성
