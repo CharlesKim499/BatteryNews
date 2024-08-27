@@ -11,12 +11,19 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.docstore import InMemoryDocstore
 from langchain_teddynote import logging
 from langchain.schema import Document
-import faiss
+import FAISS
 from dotenv import load_dotenv
 import glob
 import hmac
 import os
 import pandas as pd
+
+
+load_dotenv()
+
+
+# 프로젝트 이름을 입력합니다.
+logging.langsmith("[Project] 배터리 동향 전문가 RAG")
 
 
 st.title("Battery News GPT")
