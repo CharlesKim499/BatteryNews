@@ -16,7 +16,7 @@ template: |
   (detailed answer to the question)
 
   **출처**
-  - Page source and page number, date of source, url link of source
+  - Page source and page number, date of source, url link of source with complete url address
 
   #Question: 
   {question} 
