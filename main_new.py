@@ -199,7 +199,7 @@ else:
             == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         ):
             df = load_excel(file_path)
-            
+
             docs = []
             for index, row in df.iterrows():
                 document = f"<news><title>{row['title']}</title><details>{row['details']}</details></news><category>{row['category']}</category><URL>{row['URL']}</URL></news>"
