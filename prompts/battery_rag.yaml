@@ -8,6 +8,7 @@ template: |
   If you don't know the answer, just say that you don't know. 
   Please write your answer in a markdown table format with the main points.
   Be sure to include your source in your answer.
+  URL in source should be complete and clickable.
   Answer in Korean.
 
   # Example Format:
